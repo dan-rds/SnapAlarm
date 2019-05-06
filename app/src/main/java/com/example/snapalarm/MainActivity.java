@@ -27,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Intent i = new Intent(context, CameraActivity.class);//change to camera activity
-
                     startActivity(i);
                 }
         });
@@ -47,14 +45,12 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.d("______Main", "resumed");
 
-        try {
-            Bundle extras = getIntent().getExtras();
-            if (extras.containsKey("camera_msg")){
-                Toast.makeText(getApplicationContext(), extras.getCharSequence("camera_msg"), Toast.LENGTH_SHORT).show();
-            }
-        } catch (Exception e) {
-            Log.e("__main onResume", e.toString());
+
+        Bundle extras = getIntent().getExtras();
+        if (extras.containsKey("camera_msg")){
+            Toast.makeText(getApplicationContext(), extras.getCharSequence("camera_msg"), Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
