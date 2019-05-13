@@ -4,6 +4,7 @@ package com.example.snapalarm;
 import android.content.Context;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,7 +15,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private final Context context = this;
@@ -23,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        Button cameraFab = findViewById(R.id.camera_fab);
-        Button alarmFab = findViewById(R.id.alarm_fab);
+
+
+        Button cameraFab = findViewById(R.id.camera_btn);
+        Button alarmFab = findViewById(R.id.alarm_btn);
 
         cameraFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +49,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        ListView list = findViewById(R.id.images_list);
+        ArrayList<AlarmModel> alarms = new ArrayList<>();
+
+        //DatabaseHelper mDatabaseHelper= new DatabaseHelper(super.getApplicationContext());
+
+       // Cursor data = mDatabaseHelper.getData();
+        int i = 0;
+        while(i < 10) {
+
+            AlarmModel a = new AlarmModel(i,i, Meridian.AM);
+            alarms.add(a);
+            i +=1;
+        }
+
+        CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(),alarms);
+        list.setAdapter(mAdapter);
+
     }
 
     @Override

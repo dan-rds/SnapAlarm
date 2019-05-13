@@ -2,62 +2,46 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context="com.example.snapalarm.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/camera_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Camera" />
+
+        <Button
+            android:id="@+id/alarm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Create Alarm" />
+
+    </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/alarm_fab"
-            android:layout_width="91dp"
-            android:layout_height="77dp"
-            android:layout_marginStart="136dp"
-            android:layout_marginLeft="136dp"
-            android:layout_marginTop="136dp"
-            android:layout_marginEnd="218dp"
-            android:layout_marginRight="218dp"
-            android:layout_marginBottom="13dp"
-            android:text="Create Alarm"
-            app:layout_constraintBottom_toTopOf="@+id/camera_fab"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/camera_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="122dp"
-            android:layout_marginLeft="122dp"
-            android:layout_marginTop="226dp"
-            android:layout_marginEnd="201dp"
-            android:layout_marginRight="201dp"
-            android:layout_marginBottom="457dp"
-            android:text="Camera"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <ListView
+            android:id="@+id/images_list"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </android.support.design.widget.AppBarLayout>
+        </ListView>
+    </android.support.constraint.ConstraintLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

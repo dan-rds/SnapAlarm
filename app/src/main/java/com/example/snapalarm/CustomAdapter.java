@@ -11,21 +11,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class CustomAdapter extends ArrayAdapter<ImagePojo> {
+public class CustomAdapter extends ArrayAdapter<AlarmModel> {
 
     private Context mContext;
-    private List<ImagePojo> ImagePojosList = new ArrayList<>();
+    private List<AlarmModel> AlarmModelsList = new ArrayList<>();
 
-    public CustomAdapter(@NonNull Context context, @LayoutRes ArrayList<ImagePojo> list) {
+    public CustomAdapter(@NonNull Context context, @LayoutRes ArrayList<AlarmModel> list) {
         super(context, 0 , list);
         mContext = context;
-        ImagePojosList = list;
+        AlarmModelsList = list;
     }
 
     @NonNull
@@ -35,16 +36,13 @@ public class CustomAdapter extends ArrayAdapter<ImagePojo> {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
 
-        ImagePojo currentImagePojo = ImagePojosList.get(position);
+        AlarmModel currentAlarmModel = AlarmModelsList.get(position);
 
-        ImageView image = (ImageView)listItem.findViewById(R.id.imageView_poster);
-        image.setImageBitmap(currentImagePojo.getmImageBitmap());
+        TextView name = (TextView) listItem.findViewById(R.id.textView_time);
+        name.setText(currentAlarmModel.getTimeString());
 
-        TextView name = (TextView) listItem.findViewById(R.id.textView_id);
-        name.setText(currentImagePojo.getmTitle());
-
-        TextView release = (TextView) listItem.findViewById(R.id.textView_title);
-        release.setText(currentImagePojo.getmID());
+        Switch release = listItem.findViewById(R.id.active_switch);
+        release.setChecked(currentAlarmModel.getActiveStatus());
 
         return listItem;
     }
