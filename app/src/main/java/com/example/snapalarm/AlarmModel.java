@@ -4,6 +4,7 @@ package com.example.snapalarm;
 import java.util.List;
 
 public class AlarmModel {
+    private String name;
     private String hour;
     private String min;
     private String ampm;
@@ -19,8 +20,9 @@ public class AlarmModel {
 
     }
 
-    public AlarmModel(String hour, String min, String ampm, String sun, String mon,
+    public AlarmModel(String name, String hour, String min, String ampm, String sun, String mon,
                       String tue, String wed, String thu, String fri, String sat) {
+        this.name = name;
         this.hour = hour;
         this.min = min;
         this.min = ampm;
@@ -32,6 +34,8 @@ public class AlarmModel {
         this.min = fri;
         this.min = sat;
     }
+
+    public void setName(String name) { this.name = name; }
 
     public void setHour(String hour) { this.hour = hour; }
 
@@ -52,6 +56,8 @@ public class AlarmModel {
     public void setFri(String fri) { this.fri = fri; }
 
     public void setSat(String sat) { this.sat = sat; }
+
+    public String getName() { return name; }
 
     public String getHour() { return hour; }
 
