@@ -14,33 +14,41 @@
             android:id="@+id/alarm_fab"
             android:layout_width="91dp"
             android:layout_height="77dp"
-            android:layout_marginStart="136dp"
-            android:layout_marginLeft="136dp"
-            android:layout_marginTop="136dp"
-            android:layout_marginEnd="218dp"
-            android:layout_marginRight="218dp"
-            android:layout_marginBottom="13dp"
-            android:text="Create Alarm"
-            app:layout_constraintBottom_toTopOf="@+id/camera_fab"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/createA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/camera_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="122dp"
-            android:layout_marginLeft="122dp"
-            android:layout_marginTop="226dp"
-            android:layout_marginEnd="201dp"
-            android:layout_marginRight="201dp"
-            android:layout_marginBottom="457dp"
-            android:text="Camera"
+            android:layout_marginEnd="68dp"
+            android:layout_marginRight="68dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/camera"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/alarm_fab" />
+
+        <ScrollView
+            android:layout_width="389dp"
+            android:layout_height="632dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginBottom="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.AppBarLayout
@@ -49,11 +57,10 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="match_parent"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
