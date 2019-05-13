@@ -34,8 +34,9 @@
             app:layout_constraintEnd_toStartOf="@+id/alarm_fab" />
 
         <ScrollView
-            android:layout_width="389dp"
-            android:layout_height="632dp"
+            android:id="@+id/scrollView"
+            android:layout_width="385dp"
+            android:layout_height="598dp"
             android:layout_marginTop="66dp"
             android:layout_marginBottom="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -45,9 +46,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/root"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp" />
         </ScrollView>
     </android.support.constraint.ConstraintLayout>
 

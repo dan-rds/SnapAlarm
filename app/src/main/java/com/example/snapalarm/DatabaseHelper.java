@@ -106,5 +106,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
+    // Delete an alarm by name
+    public void deleteAlarmName(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(tableAlarms, keyName + " = ?", new String[] {name});
+        db.close();
+    }
 
 }

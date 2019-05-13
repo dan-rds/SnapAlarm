@@ -21,7 +21,14 @@ public class AlarmPage extends AppCompatActivity {
             "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47",
             "48","49","50","51","52","53","54","55","56","57","58","59"};
     String[] ampm={"AM","PM"};
-    String name, sun, mon, tue, wed, thu, fri, sat;
+    String name = "";
+    String sun = "";
+    String mon = "";
+    String tue = "";
+    String wed = "";
+    String thu = "";
+    String fri = "";
+    String sat = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
