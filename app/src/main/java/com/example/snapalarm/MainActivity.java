@@ -1,6 +1,8 @@
 package com.example.snapalarm;
 
+
 import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,13 +26,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(context, CameraActivity.class);//change to camera activity
-                    startActivity(i);
-                }
+        Button cameraFab = findViewById(R.id.camera_fab);
+        Button alarmFab = findViewById(R.id.alarm_fab);
+
+        cameraFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, CameraActivity.class);//change to camera activity
+                startActivity(i);
+            }
+        });
+        alarmFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("clicks","Click button, go to create alarm");
+                Intent i = new Intent(MainActivity.this, AlarmPage.class);
+                startActivity(i);
+            }
         });
     }
 
@@ -45,9 +58,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.d("______Main", "resumed");
 
-
         Bundle extras = getIntent().getExtras();
-        if (extras.containsKey("camera_msg")){
+        if (extras != null && extras.containsKey("camera_msg")){
             Toast.makeText(getApplicationContext(), extras.getCharSequence("camera_msg"), Toast.LENGTH_SHORT).show();
         }
 
