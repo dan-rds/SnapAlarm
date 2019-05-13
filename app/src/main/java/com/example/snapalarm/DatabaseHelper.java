@@ -80,17 +80,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(cursor.moveToFirst()) {
             do {
                 AlarmModel alarm = new AlarmModel();
-                alarm.setName(cursor.getString(1));
-                alarm.setHour(cursor.getString(2));
-                alarm.setMin(cursor.getString(3));
-                alarm.setAmpm(cursor.getString(4));
-                alarm.setSun(cursor.getString(5));
-                alarm.setMon(cursor.getString(6));
-                alarm.setTue(cursor.getString(7));
-                alarm.setWed(cursor.getString(8));
-                alarm.setThu(cursor.getString(9));
-                alarm.setFri(cursor.getString(10));
-                alarm.setSat(cursor.getString(11));
+                alarm.setName(cursor.getString(0));
+                alarm.setHour(cursor.getString(1));
+                alarm.setMin(cursor.getString(2));
+                alarm.setAmpm(cursor.getString(3));
+                alarm.setSun(cursor.getString(4));
+                alarm.setMon(cursor.getString(5));
+                alarm.setTue(cursor.getString(6));
+                alarm.setWed(cursor.getString(7));
+                alarm.setThu(cursor.getString(8));
+                alarm.setFri(cursor.getString(9));
+                alarm.setSat(cursor.getString(10));
                 alarmList.add(alarm);
             } while (cursor.moveToNext());
         }

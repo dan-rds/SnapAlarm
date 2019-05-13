@@ -25,14 +25,14 @@ public class AlarmModel {
         this.name = name;
         this.hour = hour;
         this.min = min;
-        this.min = ampm;
-        this.min = sun;
-        this.min = mon;
-        this.min = tue;
-        this.min = wed;
-        this.min = thu;
-        this.min = fri;
-        this.min = sat;
+        this.ampm = ampm;
+        this.sun = sun;
+        this.mon = mon;
+        this.tue = tue;
+        this.wed = wed;
+        this.thu = thu;
+        this.fri = fri;
+        this.sat = sat;
     }
 
     public void setName(String name) { this.name = name; }
