@@ -16,4 +16,5 @@
     <string name="create">Create</string>
 
     <string name="colon">:</string>
+    <string name="title_activity_alarm_trigger">AlarmTrigger</string>
 </resources>
