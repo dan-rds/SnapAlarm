@@ -42,5 +42,30 @@
         android:layout_marginBottom="20dp"
         />
 
+    <TextView
+        android:id="@+id/textView_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@+id/textView_active"
+        android:layout_toRightOf="@+id/textView_time"
+        android:textColor="@color/light_grey"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/textView_time"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>

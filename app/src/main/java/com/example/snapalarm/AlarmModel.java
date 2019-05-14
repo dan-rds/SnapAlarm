@@ -85,11 +85,23 @@ public class AlarmModel {
 
     }
 
+    public String getName() {
+        return String.valueOf(this._name);
+    }
+
     public String getTimeString(){
         return String.valueOf(this._hour) + ":" + String.format("%02d", this._minute) + " " + this._ampm;
     }
 
-
+    public String getDays() {
+        String days = "";
+        for(int i = 4; i <= 10; i++) {
+            if(this._repeatDays[i-4] == true) {
+                days += dow[i-4] + " ";
+            }
+        }
+        return days;
+    }
 
     public boolean getActiveStatus(){
         //TODO add a db call. Just random for now

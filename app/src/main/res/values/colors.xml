@@ -11,7 +11,7 @@
     <color name="text_background">#109000</color>
     <color name="foreground_dark">#323232</color>
     <color name="hint_foreground_dark">#808080</color>
-    <color name="light_grey">#bebebe</color>
+    <color name="light_grey">#BEBEBE</color>
     <color name="hint_foreground_light">#808080</color>
     <color name="highlight_green">#9983CC39</color>
     <color name="highlight_light_blue">#5c5cff</color>

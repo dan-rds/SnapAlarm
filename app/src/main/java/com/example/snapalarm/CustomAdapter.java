@@ -38,8 +38,14 @@ public class CustomAdapter extends ArrayAdapter<AlarmModel> {
 
         AlarmModel currentAlarmModel = AlarmModelsList.get(position);
 
-        TextView name = (TextView) listItem.findViewById(R.id.textView_time);
-        name.setText(currentAlarmModel.getTimeString());
+        TextView time = listItem.findViewById(R.id.textView_time);
+        time.setText(currentAlarmModel.getTimeString());
+
+        TextView days = listItem.findViewById(R.id.textView_days);
+        days.setText(currentAlarmModel.getDays());
+
+        TextView name = listItem.findViewById(R.id.textView_name);
+        name.setText(currentAlarmModel.getName());
 
         Switch release = listItem.findViewById(R.id.active_switch);
         release.setChecked(currentAlarmModel.getActiveStatus());

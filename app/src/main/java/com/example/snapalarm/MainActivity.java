@@ -34,20 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Button cameraFab = findViewById(R.id.camera_btn);
         Button alarmFab = findViewById(R.id.alarm_btn);
 
-
-//        LinearLayout layout = findViewById(R.id.root);
-//        for(int i = 0; i < list.size(); i++) {
-//            TextView text = new TextView(this);
-//            String catText = "Name: " + list.get(i).getName() +
-//                             "\nTime: " + list.get(i).getHour() + ":" + list.get(i).getMin() + " " + list.get(i).getAmpm() +
-//                             "\nDays: " + list.get(i).getSun() + " " + list.get(i).getMon() + " " +
-//                             list.get(i).getTue() + " " + list.get(i).getWed() + " " + list.get(i).getThu() +
-//                             " " + list.get(i).getFri() + " " + list.get(i).getSat() + "\n";
-//            text.setText(catText);
-//            layout.addView(text);
-//        }
-//
-
         cameraFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,19 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
         final DatabaseHelper db = new DatabaseHelper(this);
         ArrayList<AlarmModel> alarmList = db.getAllAlarms();
-        List<AlarmModel> list = db.getAllAlarms();
-        ConstraintLayout layout = findViewById(R.id.layout);
-//        for(int i = 0; i < list.size(); i++) {
-//            TextView text = new TextView(this);
-//            String catText = "Name: " + list.get(i).getName() +
-//                    "\nTime: " + list.get(i).getHour() + ":" + list.get(i).getMin() + " " + list.get(i).getAmpm() +
-//                    "\nDays: " + list.get(i).getSun() + " " + list.get(i).getMon() + " " +
-//                    list.get(i).getTue() + " " + list.get(i).getWed() + " " + list.get(i).getThu() +
-//                    " " + list.get(i).getFri() + " " + list.get(i).getSat() + "\n";
-//            text.setText(catText);
-//            layout.addView(text);
-//        }
-
         if(alarmList != null ) {
 
             CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(), alarmList);
