@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
@@ -57,7 +59,7 @@ public class AlarmPage extends AppCompatActivity {
         ampmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ap.setAdapter(ampmAdapter);
 
-
+        ToggleButton sunTB = findViewById(R.id.sunButt);
 
         // Create Alarm
         Button create = findViewById(R.id.createButt);

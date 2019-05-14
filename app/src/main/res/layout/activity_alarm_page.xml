@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlarmPage"
-    android:background="@color/background" >
+    android:background="@color/background"
+    tools:context=".AlarmPage">
 
     <Spinner
         android:id="@+id/hourSpin"
@@ -14,9 +14,11 @@
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="56dp"
+        android:dropDownWidth="80dp"
+        android:textSize="36sp"
+        android:textColor="@color/light_grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:dropDownWidth="80dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/minSpin"
@@ -25,6 +27,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="56dp"
+        android:textSize="36sp"
+        android:textColor="@color/light_grey"
         app:layout_constraintStart_toEndOf="@+id/hourSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,6 +39,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="69dp"
+        android:textSize="36sp"
+        android:textColor="@color/light_grey"
         app:layout_constraintStart_toEndOf="@+id/minSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,6 +79,7 @@
         android:text="@string/sat"
         android:textOff="@string/sat"
         android:textOn="@string/sat"
+        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/friButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,6 +93,7 @@
         android:text="@string/fri"
         android:textOff="@string/fri"
         android:textOn="@string/fri"
+        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/thuButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,6 +107,7 @@
         android:text="@string/thu"
         android:textOff="@string/thu"
         android:textOn="@string/thu"
+        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,6 +123,7 @@
         android:text="@string/wed"
         android:textOff="@string/wed"
         android:textOn="@string/wed"
+        android:background="@drawable/color_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tueButt"
         app:layout_constraintTop_toTopOf="parent" />
@@ -128,6 +138,7 @@
         android:text="@string/tue"
         android:textOff="@string/tue"
         android:textOn="@string/tue"
+        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/monButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,6 +152,7 @@
         android:text="@string/mon"
         android:textOff="@string/mon"
         android:textOn="@string/mon"
+        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/sunButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,6 +166,7 @@
         android:text="@string/sun"
         android:textOff="@string/sun"
         android:textOn="@string/sun"
+        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -165,6 +178,8 @@
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
+        android:textColorHint="@color/light_grey"
+        android:textColor="@color/light_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,10 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -60,10 +64,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ListView listView = findViewById(R.id.images_list);
+        ListView listView = findViewById(R.id.alarmList);
 
         final DatabaseHelper db = new DatabaseHelper(this);
         ArrayList<AlarmModel> alarmList = db.getAllAlarms();
+        List<AlarmModel> list = db.getAllAlarms();
+        ConstraintLayout layout = findViewById(R.id.layout);
+//        for(int i = 0; i < list.size(); i++) {
+//            TextView text = new TextView(this);
+//            String catText = "Name: " + list.get(i).getName() +
+//                    "\nTime: " + list.get(i).getHour() + ":" + list.get(i).getMin() + " " + list.get(i).getAmpm() +
+//                    "\nDays: " + list.get(i).getSun() + " " + list.get(i).getMon() + " " +
+//                    list.get(i).getTue() + " " + list.get(i).getWed() + " " + list.get(i).getThu() +
+//                    " " + list.get(i).getFri() + " " + list.get(i).getSat() + "\n";
+//            text.setText(catText);
+//            layout.addView(text);
+//        }
 
         if(alarmList != null ) {
 
