@@ -16,18 +16,50 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private final Context context = this;
+    View view;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*************Background*****************************/
+        view = this.getWindow().getDecorView();
+        Calendar calendar =  Calendar.getInstance();
+        textView = findViewById(R.id.textView);
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 6);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 0);
+
+        long morning = calendar.getTimeInMillis(); //6:00
+
+        calendar.set(Calendar.HOUR_OF_DAY, 17);
+        calendar.set(Calendar.MINUTE,00);
+        calendar.set(Calendar.SECOND, 0);
+
+        long evening = calendar.getTimeInMillis();
+
+        long currentTime = System.currentTimeMillis();
+
+        if(currentTime > morning && currentTime <evening){
+            view.setBackgroundResource(R.drawable.gradient_first);
+            textView.setText("Good Morning");
+        }else{
+            view.setBackgroundResource(R.drawable.gradient_night);
+            textView.setText("Good Evening");
+        }
+        /******************************************/
+
 
 
 

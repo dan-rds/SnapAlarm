@@ -1,20 +1,17 @@
 package com.example.snapalarm;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
+
+import java.util.Calendar;
+
+import static java.util.Calendar.getInstance;
 
 public class AlarmPage extends AppCompatActivity {
 
@@ -24,7 +21,7 @@ public class AlarmPage extends AppCompatActivity {
             "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47",
             "48","49","50","51","52","53","54","55","56","57","58","59"};
     String[] ampm={"AM","PM"};
-    RelativeLayout relativeLayout;
+    View view;
 
 
 
@@ -33,6 +30,31 @@ public class AlarmPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_page);
+
+        /*************Background*****************************/
+        view = this.getWindow().getDecorView();
+        Calendar calendar =  Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 6);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 0);
+
+        long morning = calendar.getTimeInMillis(); //6:00
+
+        calendar.set(Calendar.HOUR_OF_DAY, 17);
+        calendar.set(Calendar.MINUTE,00);
+        calendar.set(Calendar.SECOND, 0);
+
+        long evening = calendar.getTimeInMillis();
+
+        long currentTime = System.currentTimeMillis();
+
+        if(currentTime > morning && currentTime <evening){
+            view.setBackgroundResource(R.drawable.gradient_first);
+        }else{
+            view.setBackgroundResource(R.drawable.gradient_night);
+        }
+         /******************************************/
 
         //Hour Spinner
         Spinner h = findViewById(R.id.hourSpin);

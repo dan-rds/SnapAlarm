@@ -22,4 +22,9 @@
     <color name="purple">#3C0EF5</color>
     <color name="dark_pink">#792774</color>
     <color name="sky_blue">#009fff</color>
+    <color name="orange">#FF8C00</color>
+    <color name="gold">#FFD700</color>
+    <color name="red">#FF4500</color>
+    <color name="coral">	#FF6347</color>
+    <color name="pink">#FF69B4</color>
 </resources>
