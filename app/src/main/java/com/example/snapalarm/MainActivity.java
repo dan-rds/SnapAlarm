@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.alarmList);
 
         final DatabaseHelper db = new DatabaseHelper(this);
-        ArrayList<AlarmModel> alarmList = db.getAllAlarms();
+        ArrayList<AlarmModel> alarmList = db.git ();
         if(alarmList != null ) {
 
             CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(), alarmList);

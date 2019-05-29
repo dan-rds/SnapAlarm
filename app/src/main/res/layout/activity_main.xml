@@ -8,6 +8,8 @@
     android:background="@color/background"
     tools:context="com.example.snapalarm.MainActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,6 +47,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </ListView>
+
     </android.support.constraint.ConstraintLayout>
 
 

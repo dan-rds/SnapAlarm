@@ -23,14 +23,6 @@ public class AlarmModel {
     // TODO figure out the sound type
    // private sound alarmsound
 
-
-    AlarmModel(int hour, int minute, String meridian){
-        this._hour = hour;
-        this._minute = minute;
-        this._ampm = meridian;
-
-    }
-
     public AlarmModel(Cursor data){
        this._name = data.getString(0);
 		this._hour = data.getInt(1);
@@ -41,19 +33,15 @@ public class AlarmModel {
 		for(int i = 4; i <= 10; i++){
 		    this._repeatDays[i-4] = (data.getInt(i) == 0);
         }
-
     }
 
     public AlarmModel(HashMap<String, Object> data){
-
         for(String key : data.keySet()){
             Log.d(key, (data.get(key).getClass().getCanonicalName())+ "   " + String.valueOf(data.get(key)));
         }
 
         this._hour = Integer.parseInt(data.get("hours").toString());
-
         this._name = (String) data.get("names");
-
         this._minute = Integer.parseInt(data.get("mins").toString());
         this._ampm = (String) data.get("ampm");
 

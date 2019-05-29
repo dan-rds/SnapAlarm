@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -28,18 +29,8 @@ public class AlarmTrigger extends AppCompatActivity {
         timePicker = (TimePicker)findViewById(R.id.timePicker);
         textView = (TextView)findViewById(R.id.textView);
 
-        textView.setText(textView.getText());
 
-
-
-
-
-        //textView.setText(textView.getText().toString()+ " "+ mHour + ":"+ mMin);
-
-
-
-
-
+        //Log.d(String.valueOf(timePicker.getHour()), String.valueOf(textView.getText()));
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
