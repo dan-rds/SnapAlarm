@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             AlarmModel a = new AlarmModel(i,i, Meridian.AM);
             alarms.add(a);
             i +=1;
+
         }
 
         CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(),alarms);
@@ -116,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         if (extras != null && extras.containsKey("camera_msg")){
             Toast.makeText(getApplicationContext(), extras.getCharSequence("camera_msg"), Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
