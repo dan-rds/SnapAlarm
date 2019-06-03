@@ -66,13 +66,11 @@ public class AlarmModel {
 
         this._repeatDays = new boolean[7];
         for(int i = 0; i < 7; i++){
-            Log.d("Adding days ", "days );
             this._repeatDays[i] = ((int) data.get(dow[i]) == 0);
         }
 
         this._items = new boolean[10];
         for(int i = 0; i < 10; i++){
-            Log.d("Adding items ", "item");
             this._items[i] = ((int) data.get(obj[i]) == 0);
         }
 

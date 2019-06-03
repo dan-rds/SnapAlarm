@@ -96,7 +96,7 @@ public class AlarmPage extends AppCompatActivity {
                 Log.d("Reading: ", "Reading all alarms...");
                 List<AlarmModel> alarms = db.getAllAlarms();
 
-                //for(AlarmModel a: alarms) a.print();
+                for(AlarmModel a: alarms) a.print();
 
                 // Back to menu
                 Intent i = new Intent(AlarmPage.this, MainActivity.class);
