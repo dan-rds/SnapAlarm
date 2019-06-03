@@ -7,16 +7,71 @@
     android:background="@color/background"
     tools:context=".AlarmPage">
 
+    <CheckBox
+        android:id="@+id/item05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:text="@string/item05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEdit" />
+
+    <CheckBox
+        android:id="@+id/item06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:text="@string/item06"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item05" />
+
+    <CheckBox
+        android:id="@+id/item07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:text="@string/item07"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item06" />
+
+    <CheckBox
+        android:id="@+id/item08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:text="@string/item08"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item07" />
+
+    <CheckBox
+        android:id="@+id/item09"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginRight="89dp"
+        android:text="@string/item09"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item08" />
+
     <Spinner
         android:id="@+id/hourSpin"
         android:layout_width="87dp"
         android:layout_height="85dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="36dp"
         android:dropDownWidth="80dp"
-        android:textSize="36sp"
         android:textColor="@color/light_grey"
+        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,11 +79,11 @@
         android:id="@+id/minSpin"
         android:layout_width="87dp"
         android:layout_height="85dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="56dp"
-        android:textSize="36sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="36dp"
         android:textColor="@color/light_grey"
+        android:textSize="36sp"
         app:layout_constraintStart_toEndOf="@+id/hourSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,11 +91,11 @@
         android:id="@+id/ampmSpin"
         android:layout_width="96dp"
         android:layout_height="64dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="69dp"
-        android:textSize="36sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="56dp"
         android:textColor="@color/light_grey"
+        android:textSize="36sp"
         app:layout_constraintStart_toEndOf="@+id/minSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,9 +103,9 @@
         android:id="@+id/colon"
         android:layout_width="36dp"
         android:layout_height="62dp"
-        android:layout_marginStart="147dp"
-        android:layout_marginLeft="147dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="48dp"
         android:text="@string/colon"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="36sp"
@@ -73,13 +128,13 @@
         android:id="@+id/satButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/sat"
         android:textOff="@string/sat"
         android:textOn="@string/sat"
-        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/friButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,13 +142,13 @@
         android:id="@+id/friButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/fri"
         android:textOff="@string/fri"
         android:textOn="@string/fri"
-        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/thuButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,13 +156,13 @@
         android:id="@+id/thuButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/thu"
         android:textOff="@string/thu"
         android:textOn="@string/thu"
-        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,14 +172,15 @@
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/wed"
         android:textOff="@string/wed"
         android:textOn="@string/wed"
-        android:background="@drawable/color_toggle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tueButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -132,13 +188,13 @@
         android:id="@+id/tueButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/tue"
         android:textOff="@string/tue"
         android:textOn="@string/tue"
-        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/monButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -146,13 +202,13 @@
         android:id="@+id/monButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/mon"
         android:textOff="@string/mon"
         android:textOn="@string/mon"
-        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toEndOf="@+id/sunButt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -160,13 +216,13 @@
         android:id="@+id/sunButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/color_toggle"
         android:text="@string/sun"
         android:textOff="@string/sun"
         android:textOn="@string/sun"
-        android:background="@drawable/color_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -174,16 +230,71 @@
         android:id="@+id/nameEdit"
         android:layout_width="297dp"
         android:layout_height="47dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="288dp"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
-        android:textColorHint="@color/light_grey"
         android:textColor="@color/light_grey"
+        android:textColorHint="@color/light_grey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/item01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/item01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item00" />
+
+    <CheckBox
+        android:id="@+id/item03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/item03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item02" />
+
+    <CheckBox
+        android:id="@+id/item00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/item00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEdit" />
+
+    <CheckBox
+        android:id="@+id/item02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/item02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item01" />
+
+    <CheckBox
+        android:id="@+id/item04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/item04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item03" />
 
 
 </android.support.constraint.ConstraintLayout>
