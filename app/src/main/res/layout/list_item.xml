@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background">
 
 
@@ -41,7 +43,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:thumbTint="@color/orange"
-        android:trackTint="@color/light_grey" />
+        android:trackTint="#50EBEBEB" />
 
     <TextView
         android:id="@+id/textView_days"
@@ -67,6 +69,19 @@
         android:textColor="@color/cardview_light_background"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_time"
+        android:layout_marginTop="80dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/orange"
+        android:foreground="@color/orange"
+        android:foregroundTint="@color/orange"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
 
 </RelativeLayout>
