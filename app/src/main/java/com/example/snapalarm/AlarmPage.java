@@ -60,11 +60,19 @@ public class AlarmPage extends AppCompatActivity {
 
         long evening = calendar.getTimeInMillis();
 
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 00);
+
+        long day = calendar.getTimeInMillis();
+
         long currentTime = System.currentTimeMillis();
 
-        if(currentTime > morning && currentTime <evening){
+        if(currentTime > morning && currentTime <day){
             view.setBackgroundResource(R.drawable.gradient_first);
-        }else{
+        }else if(currentTime< day && currentTime<evening){
+            view.setBackgroundResource(R.drawable.gradient_sunrise);
+        }else {
             view.setBackgroundResource(R.drawable.gradient_night);
         }
          /******************************************/
