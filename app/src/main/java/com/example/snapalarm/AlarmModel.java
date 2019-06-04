@@ -85,9 +85,13 @@ public class AlarmModel {
         }
 
         // Change items to actual items
-        String items[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
-        for(int i = 0; i < 10; i++){
+        String items[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08"};
+        for(int i = 0; i < 9; i++){
             output.put(items[i], this._items[i]? 1 : 0);
+        }
+
+        for(Object k: output.keySet().toArray()){
+            Log.e(k.toString() + ":  ", output.get(k.toString()).toString());
         }
         return output;
 
