@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String keyThu = "thu";
     private static final String keyFri = "fri";
     private static final String keySat = "sat";
+    private static final String keyItem00 = "item00";
+    private static final String keyItem01 = "item01";
+    private static final String keyItem02 = "item02";
+    private static final String keyItem03 = "item03";
+    private static final String keyItem04 = "item04";
+    private static final String keyItem05 = "item05";
+    private static final String keyItem06 = "item06";
+    private static final String keyItem07 = "item07";
+    private static final String keyItem08 = "item08";
+    private static final String keyItem09 = "item09";
+
 
     public DatabaseHelper(Context context) { super(context, dbName, null, 1); }
 
@@ -42,7 +54,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String createAlarmTable = "Create Table " + tableAlarms + " (" + keyName + " TEXT, " + keyHour +
                                   " INTEGER, " + keyMin + " INTEGER, " + keyAMPM + " TEXT, " + keySun + " TEXT, " +
                                   keyMon + " TEXT, " + keyTue + " TEXT, " + keyWed + " TEXT, " +
-                                  keyThu + " TEXT, " + keyFri + " TEXT, " + keySat + " TEXT)";
+                                  keyThu + " TEXT, " + keyFri + " TEXT, " + keySat + " TEXT, " +
+                                  keyItem00 + " TEXT, " + keyItem01 + " TEXT, " + keyItem02 + " TEXT, " +
+                                  keyItem03 + " TEXT, " + keyItem04 + " TEXT, " + keyItem05 + " TEXT, " +
+                                  keyItem06 + " TEXT, " + keyItem07 + " TEXT, " + keyItem08 + " TEXT, " +
+                                  keyItem09 + " TEXT)";
         db.execSQL(createAlarmTable);
     }
 
@@ -57,7 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void addAlarm(AlarmModel alarmModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = alarmModel.toContentValues();
-
+        Log.d("Add Alarm: ", "Adding alarm...");
         db.insert(tableAlarms, null, values);
         db.close();
     }
@@ -77,7 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Get number of Alarms
-    public int getPictureCount() {
+    public int getAlarmCount() {
         String countQuery = "SELECT * FROM " + tableAlarms;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
