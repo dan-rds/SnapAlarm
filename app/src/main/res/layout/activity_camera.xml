@@ -24,7 +24,7 @@
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="@string/imageRes"
-        android:textColor="@color/white"
+        android:textColor="@color/blackish"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
