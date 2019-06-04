@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#FF5722</color>
+
+    <color name="white">#ffffff</color>
+    <color name="transparent">#0d000000</color>
+    <color name="list">#e9e9f2</color>
+    <color name="orange">#FF5722</color>
     <color name="colorPrimaryDark">#80000000</color>
     <color name="background">#222</color>
     <color name="menuBackground">#80000000</color>
@@ -14,6 +20,15 @@
     <color name="highlight_green">#9983CC39</color>
     <color name="highlight_light_blue">#5c5cff</color>
     <color name="highlight_elec_blue">#0000ee</color>
-    <color name="orange">#FF5722</color>
+    <color name="light_blue">#00AAFE</color>
+    <color name="teal">#15EBAB</color>
+    <color name="purple">#3C0EF5</color>
+    <color name="dark_pink">#792774</color>
+    <color name="sky_blue">#009fff</color>
+
+    <color name="gold">#FFD700</color>
+    <color name="red">#FF4500</color>
+    <color name="coral">	#FF6347</color>
+    <color name="pink">#FF69B4</color>
 
 </resources>
