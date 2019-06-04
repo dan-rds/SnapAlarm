@@ -1,5 +1,7 @@
 package com.example.snapalarm;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.graphics.Bitmap;
 import android.content.Intent;
 import com.google.firebase.auth.FirebaseUser;
@@ -53,6 +55,7 @@ public class CameraActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CameraActivity.this, MainActivity.class);
+                i.putExtra("camera_msg", "Found Wall");
                 startActivity(i);
             }
         });
@@ -75,13 +78,16 @@ public class CameraActivity extends AppCompatActivity{
             Set<Map.Entry<String,Object>> hashSet=map.entrySet();
             for(Map.Entry entry:hashSet ) {
 
-                Log.e("Key= "+entry.getKey(), "Value="+entry.getValue());
+                Log.e("Ke y= "+entry.getKey(), "Value="+entry.getValue());
                 imageRecResults.add(index + ". " + entry.getKey().toString() + "     " + entry.getValue().toString());
                 index++;
             }
             ArrayAdapter<String> resultAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, imageRecResults);
             imageRes.setAdapter(resultAdapter);
 
+//            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 2444, intent, 0 );
+//
+//
 
         }
     }

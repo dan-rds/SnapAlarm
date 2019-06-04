@@ -46,11 +46,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="47dp"
+        android:layout_marginStart="31dp"
         android:layout_marginTop="311dp"
         android:text="SnapAlarm"
         android:textColor="@color/orange"
-        android:textSize="30pt"
+        android:textSize="15pt"
         android:textStyle="bold" />
 
 </RelativeLayout>

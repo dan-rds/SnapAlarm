@@ -23,7 +23,7 @@
     <string name="item07">Couch</string>
     <string name="item08">Mailbox</string>
     <string name="item09">Fork</string>
-    <string name="create">Bookcase</string>
+    <string name="create">Create</string>
 
     <string name="colon">:</string>
     <string name="title_activity_alarm_trigger">AlarmTrigger</string>

@@ -8,12 +8,21 @@ import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.Log;
 
 public class MyBrodcastReciver extends BroadcastReceiver {
+    private Ringtone ringtone;
     @Override
     public void onReceive(Context context, Intent intent) {
+        Bundle extras = intent.getExtras();
+        if (extras != null && extras.keySet().contains("command") ){
+            Log.e("Command"," present in budle");
+            ringtone.stop();
+
+        }
         Vibrator vibrator = ( Vibrator ) context.getSystemService(Context.VIBRATOR_SERVICE);
         //vibrator.vibrate(VibrationEffect.createOneShot(2000, -1));
         vibrator.vibrate(2000);
@@ -30,9 +39,9 @@ public class MyBrodcastReciver extends BroadcastReceiver {
         manager.notify(0, notification);
 
         Uri notif = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-        Ringtone ringtone = RingtoneManager.getRingtone(context, notif);
+
+        ringtone = RingtoneManager.getRingtone(context, notif);
         ringtone.play();
-
-
     }
+
 }
