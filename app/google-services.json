@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "954055876389",
+    "firebase_url": "https://snapalarm.firebaseio.com",
+    "project_id": "snapalarm",
+    "storage_bucket": "snapalarm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954055876389:android:e9460f4e99cdb852",
+        "android_client_info": {
+          "package_name": "com.example.snapalarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954055876389-1qtddhor3riil62ri0hm102an115nt4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw3sLLmjUG9X4WRNEqANJUhUd4LpB9NBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954055876389-1qtddhor3riil62ri0hm102an115nt4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
