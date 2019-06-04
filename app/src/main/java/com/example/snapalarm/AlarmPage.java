@@ -22,7 +22,7 @@ import static java.util.Calendar.getInstance;
 
 public class AlarmPage extends AppCompatActivity {
 
-    String[] hours={"1","2","3","4","5","6","7","8","9","10","11","12"};
+    String[] hours={"1","2","3","4","5","6","7","8","9","10","11","12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "24"};
     String[] mins={"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15",
             "16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31",
             "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47",
@@ -87,6 +87,7 @@ public class AlarmPage extends AppCompatActivity {
 
 
 
+
         //AM/PM Spinner
         Spinner ap = findViewById(R.id.ampmSpin);
         ArrayAdapter<String> ampmAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ampm);
@@ -112,22 +113,19 @@ public class AlarmPage extends AppCompatActivity {
 
                 Calendar cal_alarm = Calendar.getInstance();
                 Calendar cal_now = Calendar.getInstance();
-                //Calendar calendar = Calendar.getInstance();
 
                 cal_now.setTime(date);
                 cal_alarm.setTime(date);
 
-
-
                 cal_alarm.set(Calendar.HOUR_OF_DAY, mhour);
                 cal_alarm.set(Calendar.MINUTE, mmin );
-                cal_alarm.set(Calendar.SECOND, 0);
+                //cal_alarm.set(Calendar.SECOND, 0);
 
                 if(cal_alarm.before(cal_now)){
                     cal_alarm.add(Calendar.DATE, 1);
                 }
 
-                Toast.makeText(getApplicationContext(),"Alarm created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Alarm set "+ mhour +":"+ mmin, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0 );
