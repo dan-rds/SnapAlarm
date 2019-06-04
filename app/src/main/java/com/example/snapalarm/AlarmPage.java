@@ -1,6 +1,7 @@
 package com.example.snapalarm;
 
 import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.Calendar;
@@ -31,6 +33,11 @@ public class AlarmPage extends AppCompatActivity {
             "48","49","50","51","52","53","54","55","56","57","58","59"};
     String[] ampm={"AM","PM"};
 
+    public int hour;
+    public int min;
+    public String minute;
+    public String Hhour;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +50,14 @@ public class AlarmPage extends AppCompatActivity {
         ArrayAdapter<String> hAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, hours);
         hAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         h.setAdapter(hAdapter);
+        Hhour = h.getSelectedItem().toString();
 
         //Minute Spinner
         final Spinner m = findViewById(R.id.minSpin);
         ArrayAdapter<String> mAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mins);
         mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         m.setAdapter(mAdapter);
+        minute = m.getSelectedItem().toString();
 
         //AM/PM Spinner
         final Spinner ap = findViewById(R.id.ampmSpin);
@@ -92,18 +101,54 @@ public class AlarmPage extends AppCompatActivity {
                 // Add to database
                 db.addAlarm(new AlarmModel(alarm));
 
+
+
                 // Read all alarms on db TEST FUNCTION
                 Log.d("Reading: ", "Reading all alarms...");
                 List<AlarmModel> alarms = db.getAllAlarms();
 
                 for(AlarmModel a: alarms) a.print();
 
+
+
                 // Back to menu
+
+
+            try{
+                min = Integer.parseInt(m.getSelectedItem().toString());
+                hour = Integer.parseInt(h.getSelectedItem().toString());
+            }catch (NumberFormatException e) {
+
+            }
+                AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                Date date = new Date();
+                Calendar cal_alarm = Calendar.getInstance();
+                Calendar cal_now = Calendar.getInstance();
+
+                cal_now.setTime(date);
+                cal_alarm.setTime(date);
+
+                cal_alarm.set(Calendar.HOUR_OF_DAY, hour);
+                cal_alarm.set(Calendar.MINUTE, min);
+                cal_alarm.set(Calendar.SECOND, 0);
+
+                if(cal_alarm.before(cal_now)){
+                    cal_alarm.add(Calendar.DATE, 1);
+                }
+
+                Toast.makeText(getApplicationContext(), "Alarm Set " + nameText.getText().toString() +" for "+ Integer.parseInt(h.getSelectedItem().toString())  + ":"+m.getSelectedItem() + ap.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0);
+
+                alarmManager.set(AlarmManager.RTC_WAKEUP, cal_alarm.getTimeInMillis(), pendingIntent);
+
                 Intent i = new Intent(AlarmPage.this, MainActivity.class);
                 startActivity(i);
             }
-        });
-    }
 
+
+            });
+    }
 
 }

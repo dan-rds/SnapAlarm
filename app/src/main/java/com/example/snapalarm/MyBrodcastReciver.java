@@ -15,14 +15,15 @@ public class MyBrodcastReciver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Vibrator vibrator = ( Vibrator ) context.getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(VibrationEffect.createOneShot(2000, -1));
+        //vibrator.vibrate(VibrationEffect.createOneShot(2000, -1));
+        vibrator.vibrate(2000);
 
         Notification notification = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-//            notification = new Notification.Build(context)
-//                    .setContentTitle("Alarm is ON")
-//                    .setContentText("Alarm is set")
-//                    .setSmallIcon(R.mipmap.ic_launcher).build();
+         notification = new Notification.Builder(context)
+                    .setContentTitle("Alarm is ON")
+                    .setContentText("Alarm is set")
+                    .setSmallIcon(R.mipmap.ic_launcher).build();
         }
         NotificationManager manager = ( NotificationManager ) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notification.flags = Notification.FLAG_AUTO_CANCEL;
