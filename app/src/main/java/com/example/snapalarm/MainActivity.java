@@ -33,11 +33,10 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        //StrictMode.VmPolicy.Builder
-        builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        /*************Background*****************************
+        /*************Background*****************************/
         view = this.getWindow().getDecorView();
         Calendar calendar =  Calendar.getInstance();
         textView = findViewById(R.id.textView);
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ArrayList<AlarmModel> alarmList;
+        ArrayList<AlarmModel> alarmList = db.git();
 
          alarmList = db.getAllAlarms ();
 

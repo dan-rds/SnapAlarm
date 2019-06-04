@@ -219,15 +219,13 @@ public class AlarmPage extends AppCompatActivity {
                 }
 
                 // Get Items
-                /***
                 String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
-                 checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07, R.id.item08, R.id.item09};
+                int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
+                                  R.id.item08, R.id.item09};
                 for(int j = 0; j < 10; j++){
                     CheckBox cb = findViewById(checkIDs[j]);
                     alarm.put(obj[j], cb.isChecked()? 1: 0);
                 }
-
-                 *///
 
                 AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
                 Date date = new Date();
