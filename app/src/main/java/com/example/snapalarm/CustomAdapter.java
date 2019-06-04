@@ -1,4 +1,3 @@
-// Biblio: I used this medium article https://medium.com/mindorks/custom-array-adapters-made-easy-b6c4930560dd
 
 package com.example.snapalarm;
 

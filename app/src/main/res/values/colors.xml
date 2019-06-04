@@ -16,4 +16,6 @@
     <color name="highlight_green">#9983CC39</color>
     <color name="highlight_light_blue">#5c5cff</color>
     <color name="highlight_elec_blue">#0000ee</color>
+    <color name="orange">#FF5722</color>
+
 </resources>

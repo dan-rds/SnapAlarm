@@ -12,6 +12,7 @@
 /captures
 .idea/`
 .externalNativeBuild
+./app/google-services.json
 
 .idea/
 .idea/

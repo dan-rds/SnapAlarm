@@ -39,12 +39,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="246dp"
+            android:layout_marginRight="246dp"
+            android:layout_marginBottom="88dp"
+            app:layout_constraintBottom_toTopOf="@+id/alarmList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <ListView
             android:id="@+id/alarmList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="328dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="-84dp">
 
         </ListView>
 
