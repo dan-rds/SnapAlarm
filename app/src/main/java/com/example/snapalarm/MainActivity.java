@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -27,11 +28,30 @@ public class MainActivity extends AppCompatActivity {
     private final Context context = this;
     View view;
     TextView textView;
+    Button alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /******************************************************
+         *
+         * Button
+         ***************Debug Button for sound**************************************/
+        alarm = (Button)findViewById(R.id.playAlarm);
+        final MediaPlayer sound = MediaPlayer.create(this, R.raw.sample);
+
+        alarm.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                sound.start();
+
+            }
+        });
+
+
+
+
         /*************Background*****************************/
         view = this.getWindow().getDecorView();
         Calendar calendar =  Calendar.getInstance();
@@ -80,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         cameraFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sound.stop();
                 Intent i = new Intent(context, CameraActivity.class);//change to camera activity
                 startActivity(i);
             }
@@ -146,4 +167,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
