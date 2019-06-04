@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -90,6 +91,8 @@ public class AlarmPage extends AppCompatActivity {
         ampmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ap.setAdapter(ampmAdapter);
 
+
+
         Button create = findViewById(R.id.createButt);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,9 +109,14 @@ public class AlarmPage extends AppCompatActivity {
 
         Calendar cal_alarm = Calendar.getInstance();
         Calendar cal_now = Calendar.getInstance();
+        //Calendar calendar = Calendar.getInstance();
 
         cal_now.setTime(date);
         cal_alarm.setTime(date);
+
+        //calendar.set(Calendar.HOUR_OF_DAY, 3);
+       // calendar.set(Calendar.MINUTE,36);
+       // calendar.set(Calendar.SECOND, 0);
 
 
         cal_alarm.set(Calendar.HOUR_OF_DAY, mhour);
@@ -118,6 +126,8 @@ public class AlarmPage extends AppCompatActivity {
         if(cal_alarm.before(cal_now)){
             cal_alarm.add(Calendar.DATE, 1);
         }
+
+        Toast.makeText(getApplicationContext(),"Alarm created", Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0 );
