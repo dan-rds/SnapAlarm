@@ -28,9 +28,10 @@ public class AlarmPage extends AppCompatActivity {
             "48","49","50","51","52","53","54","55","56","57","58","59"};
     String[] ampm={"AM","PM"};
     View view;
-    int mhour;
-    int mmin;
-    int m_ampm;
+    public int mhour;
+    public int mmin;
+    public String minute;
+
 
 
 
@@ -80,7 +81,7 @@ public class AlarmPage extends AppCompatActivity {
         ArrayAdapter<String> mAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mins);
         mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         m.setAdapter(mAdapter);
-        String minute = m.getSelectedItem().toString();
+        minute = m.getSelectedItem().toString();
         mmin = Integer.parseInt(minute);
 
 
@@ -97,6 +98,8 @@ public class AlarmPage extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Intent i = new Intent(AlarmPage.this, MainActivity.class);
                 startActivity(i);
             }
@@ -114,9 +117,6 @@ public class AlarmPage extends AppCompatActivity {
         cal_now.setTime(date);
         cal_alarm.setTime(date);
 
-        //calendar.set(Calendar.HOUR_OF_DAY, 3);
-       // calendar.set(Calendar.MINUTE,36);
-       // calendar.set(Calendar.SECOND, 0);
 
 
         cal_alarm.set(Calendar.HOUR_OF_DAY, mhour);
