@@ -8,20 +8,21 @@ import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 
 public class MyBrodcastReciver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Vibrator vibrator = ( Vibrator ) context.getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(2000);
+        vibrator.vibrate(VibrationEffect.createOneShot(2000, -1));
 
         Notification notification = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            notification = new Notification.Builder(context)
-                    .setContentTitle("Alarm is ON")
-                    .setContentText("Alarm is set")
-                    .setSmallIcon(R.mipmap.ic_launcher).build();
+//            notification = new Notification.Build(context)
+//                    .setContentTitle("Alarm is ON")
+//                    .setContentText("Alarm is set")
+//                    .setSmallIcon(R.mipmap.ic_launcher).build();
         }
         NotificationManager manager = ( NotificationManager ) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notification.flags = Notification.FLAG_AUTO_CANCEL;

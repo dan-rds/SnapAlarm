@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -29,14 +30,6 @@ public class AlarmPage extends AppCompatActivity {
             "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47",
             "48","49","50","51","52","53","54","55","56","57","58","59"};
     String[] ampm={"AM","PM"};
-    String name = "";
-    String sun = "";
-    String mon = "";
-    String tue = "";
-    String wed = "";
-    String thu = "";
-    String fri = "";
-    String sat = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +56,6 @@ public class AlarmPage extends AppCompatActivity {
         ampmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ap.setAdapter(ampmAdapter);
 
-        ToggleButton sunTB = findViewById(R.id.sunButt);
-
         // Create Alarm
         Button create = findViewById(R.id.createButt);
         create.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +80,14 @@ public class AlarmPage extends AppCompatActivity {
                     ToggleButton tb =  findViewById(toggleIDs[i]);
                     alarm.put(dow[i], tb.isChecked()? 1: 0);
                 }
-                // Get Days
+                // Get Items
+                String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
+                int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
+                                  R.id.item08, R.id.item09};
+                for(int j = 0; j < 10; j++){
+                    CheckBox cb = findViewById(checkIDs[j]);
+                    alarm.put(obj[j], cb.isChecked()? 1: 0);
+                }
 
                 // Add to database
                 db.addAlarm(new AlarmModel(alarm));

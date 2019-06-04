@@ -18,7 +18,9 @@ public class AlarmModel {
     private String _ampm;
     private String _name;
     private boolean[] _repeatDays;
+    private boolean[] _items;
     String dow[] = {"sun","mon","tue","wed","thu","fri","sat"};
+    String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
 
     // TODO figure out the sound type
    // private sound alarmsound
@@ -33,6 +35,13 @@ public class AlarmModel {
 		for(int i = 4; i <= 10; i++){
 		    this._repeatDays[i-4] = (data.getInt(i) == 0);
         }
+
+
+		this._items = new boolean[10];
+		for(int i = 11; i <= 20; i++) {
+		    this._items[i-11] = (data.getInt(i) == 0);
+        }
+
     }
 
     public AlarmModel(HashMap<String, Object> data){
@@ -48,6 +57,11 @@ public class AlarmModel {
         this._repeatDays = new boolean[7];
         for(int i = 0; i < 7; i++){
             this._repeatDays[i] = ((int) data.get(dow[i]) == 0);
+        }
+
+        this._items = new boolean[10];
+        for(int i = 0; i < 10; i++){
+            this._items[i] = ((int) data.get(obj[i]) == 0);
         }
 
     }
@@ -69,6 +83,12 @@ public class AlarmModel {
         for(int i = 0; i < 7; i++){
             output.put(dow[i], this._repeatDays[i]? 1 : 0);
         }
+
+        // Change items to actual items
+        String items[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
+        for(int i = 0; i < 10; i++){
+            output.put(items[i], this._items[i]? 1 : 0);
+        }
         return output;
 
     }
@@ -89,6 +109,16 @@ public class AlarmModel {
             }
         }
         return days;
+    }
+
+    public String getItems() {
+        String items = "";
+        for(int i = 11; i <= 20; i++) {
+            if(this._items[i-11] == true) {
+                items += obj[i-11] + " ";
+            }
+        }
+        return items;
     }
 
     public boolean getActiveStatus(){

@@ -9,8 +9,8 @@
     tools:context="com.example.snapalarm.MainActivity">
 
 
-
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -21,6 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/blackish"
+            android:textColor="@color/buttonAccent"
+            android:textStyle="bold"
             android:text="@string/camera" />
 
 
@@ -30,7 +33,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/createA" />
+            android:backgroundTint="@color/blackish"
+            android:textColor="@color/buttonAccent"
+            android:text="@string/createA"
+
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -43,8 +50,9 @@
             android:id="@+id/alarmList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="53dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="-84dp">
 
         </ListView>
 
