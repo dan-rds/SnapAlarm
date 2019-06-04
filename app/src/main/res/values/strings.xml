@@ -27,4 +27,7 @@
 
     <string name="colon">:</string>
     <string name="title_activity_alarm_trigger">AlarmTrigger</string>
+
+    <string name="ret">Return</string>
+    <string name="imageRes">Image Results</string>
 </resources>
