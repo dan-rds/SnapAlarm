@@ -35,9 +35,9 @@
             android:layout_weight="1"
 
             android:backgroundTint="@color/blackish"
-            android:textColor="@color/buttonAccent"
-            android:textStyle="bold"
-            android:text="@string/camera" />
+            android:text="@string/camera"
+            android:textColor="@color/orange"
+            android:textStyle="bold" />
 
 
         <Button
@@ -50,8 +50,8 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:backgroundTint="@color/blackish"
-            android:textColor="@color/buttonAccent"
             android:text="@string/createA"
+            android:textColor="@color/orange"
 
             android:textStyle="bold" />
 
@@ -69,11 +69,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+
             android:layout_marginTop="143dp"
             android:background="@android:color/transparent"
             android:cacheColorHint="@android:color/transparent"
-            android:divider="@android:color/white"
+            android:divider="@color/foreground"
             app:layout_constraintTop_toTopOf="parent">
+
+
 
         </ListView>
 
