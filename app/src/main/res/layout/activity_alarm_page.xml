@@ -48,7 +48,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
-        android:text="@string/"
+        android:text="@string/item07"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item07" />
 
@@ -243,7 +243,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<<<<<<< HEAD
     <CheckBox
         android:id="@+id/item01"
         android:layout_width="wrap_content"
@@ -252,19 +251,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="4dp"
         android:text="@string/item01"
-=======
-    <TextView
-        android:id="@+id/colon"
-        android:layout_width="36dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="147dp"
-        android:layout_marginLeft="147dp"
-        android:layout_marginTop="71dp"
-        android:text="@string/colon"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="37sp"
-        android:textStyle="bold"
->>>>>>> db4954e3b5f43f4a56e66d58ac2c0d49144efd6a
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item00" />
 

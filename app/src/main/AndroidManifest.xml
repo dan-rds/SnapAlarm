@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.snapalarm">
-<<<<<<< HEAD
-    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
-=======
 
-    <!--<uses-permission android:name="android.permission.CAMERA" />-->
+
     <uses-permission android:name="android.permission.VIBRATE"/>
 
 
->>>>>>> db4954e3b5f43f4a56e66d58ac2c0d49144efd6a
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature
         android:name="android.hardware.camera.any"
