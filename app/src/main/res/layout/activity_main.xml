@@ -22,9 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blackish"
-            android:textColor="@color/buttonAccent"
-            android:textStyle="bold"
-            android:text="@string/camera" />
+            android:text="@string/camera"
+            android:textColor="@color/orange"
+            android:textStyle="bold" />
 
 
         <Button
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blackish"
-            android:textColor="@color/buttonAccent"
             android:text="@string/createA"
+            android:textColor="@color/orange"
 
             android:textStyle="bold" />
 
@@ -51,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="53dp"
+            android:divider="@color/orange"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="-84dp">
 

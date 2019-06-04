@@ -7,10 +7,11 @@
     <color name="colorAccent">#50000000</color>
     <color name="buttonAccent">#FF9696</color>
     <color name="foreground">#50000000</color>
+    <color name="white">#FFF</color>
     <color name="blackish">#111</color>
     <color name="text_background">#109000</color>
     <color name="foreground_dark">#5000</color>
-    <color name="light_grey">#50000000</color>
+    <color name="light_grey">#50CCCCCC</color>
     <color name="highlight_green">#9983CC39</color>
     <color name="highlight_light_blue">#5c5cff</color>
     <color name="highlight_elec_blue">#0000ee</color>

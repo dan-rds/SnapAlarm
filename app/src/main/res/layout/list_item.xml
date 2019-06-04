@@ -40,7 +40,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        />
+        android:thumbTint="@color/orange"
+        android:trackTint="@color/light_grey" />
 
     <TextView
         android:id="@+id/textView_days"
@@ -51,7 +52,7 @@
         android:layout_marginTop="45dp"
         android:layout_marginBottom="10dp"
         android:layout_toRightOf="@+id/textView_time"
-        android:textColor="@color/light_grey"
+        android:textColor="#50EBEBEB"
         android:textSize="18sp" />
 
     <TextView
