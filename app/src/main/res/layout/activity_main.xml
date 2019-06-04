@@ -35,6 +35,7 @@
             android:layout_weight="1"/>
 
 
+
         <Button
             android:id="@+id/alarm_btn"
             style="@style/Widget.AppCompat.Button"
@@ -45,8 +46,8 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:backgroundTint="@color/blackish"
+            android:textColor="@color/buttonAccent"
             android:text="@string/createA"
-            android:textColor="@color/orange"
 
             android:textStyle="bold" />
 

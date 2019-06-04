@@ -100,9 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.alarmList);
 
-
         final DatabaseHelper db = new DatabaseHelper(this);
-
 
 
         ArrayList<AlarmModel> alarmList = db.git();
@@ -112,20 +110,16 @@ public class MainActivity extends AppCompatActivity {
 
          alarmList = db.getAllAlarms ();
 
-
-        Log.e("ARARM LIST LENGTH = ", String.valueOf(alarmList.size()));
-
         if(alarmList != null ) {
+
             CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(), alarmList);
             listView.setAdapter(mAdapter);
-//            for (AlarmModel am: alarmList) {
-//                AlarmModel a = new AlarmModel(i, i, );
-//                alarms.add(a);
-//            }
+
+//            AlarmModel a = new AlarmModel(i,i, Meridian.AM);
+//            alarms.add(a);
+//            i +=1;
 
         }
-
-
 
     }
 
