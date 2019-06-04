@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,6 +32,7 @@ public class AlarmPage extends AppCompatActivity {
     public int mhour;
     public int mmin;
     public String minute;
+    public String hour;
 
 
 
@@ -72,8 +74,8 @@ public class AlarmPage extends AppCompatActivity {
         ArrayAdapter<String> hAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, hours);
         hAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         h.setAdapter(hAdapter);
-        String hour = h.getSelectedItem().toString();
-        mhour = Integer.parseInt(hour);
+        hour = h.getSelectedItem().toString();
+        Log.d("MainActivity", "hour"+ mhour);
 
 
         //Minute Spinner
@@ -82,7 +84,6 @@ public class AlarmPage extends AppCompatActivity {
         mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         m.setAdapter(mAdapter);
         minute = m.getSelectedItem().toString();
-        mmin = Integer.parseInt(minute);
 
 
 
@@ -99,6 +100,40 @@ public class AlarmPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                try {
+
+                    mmin = Integer.parseInt(minute);
+                    mhour = Integer.parseInt(hour);
+                }catch (NumberFormatException e){
+
+                }
+                AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                Date date = new Date();
+
+                Calendar cal_alarm = Calendar.getInstance();
+                Calendar cal_now = Calendar.getInstance();
+                //Calendar calendar = Calendar.getInstance();
+
+                cal_now.setTime(date);
+                cal_alarm.setTime(date);
+
+
+
+                cal_alarm.set(Calendar.HOUR_OF_DAY, mhour);
+                cal_alarm.set(Calendar.MINUTE, mmin );
+                cal_alarm.set(Calendar.SECOND, 0);
+
+                if(cal_alarm.before(cal_now)){
+                    cal_alarm.add(Calendar.DATE, 1);
+                }
+
+                Toast.makeText(getApplicationContext(),"Alarm created", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0 );
+                alarmManager.set(AlarmManager.RTC_WAKEUP, cal_alarm.getTimeInMillis(), pendingIntent);
+
+
 
                 Intent i = new Intent(AlarmPage.this, MainActivity.class);
                 startActivity(i);
@@ -106,33 +141,4 @@ public class AlarmPage extends AppCompatActivity {
         });
     }
 
-    public void setTimer(View view){
-        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        Date date = new Date();
-
-        Calendar cal_alarm = Calendar.getInstance();
-        Calendar cal_now = Calendar.getInstance();
-        //Calendar calendar = Calendar.getInstance();
-
-        cal_now.setTime(date);
-        cal_alarm.setTime(date);
-
-
-
-        cal_alarm.set(Calendar.HOUR_OF_DAY, mhour);
-        cal_alarm.set(Calendar.MINUTE, mmin );
-        cal_alarm.set(Calendar.SECOND, 0);
-
-        if(cal_alarm.before(cal_now)){
-            cal_alarm.add(Calendar.DATE, 1);
-        }
-
-        Toast.makeText(getApplicationContext(),"Alarm created", Toast.LENGTH_SHORT).show();
-
-        Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0 );
-        alarmManager.set(AlarmManager.RTC_WAKEUP, cal_alarm.getTimeInMillis(), pendingIntent);
-
-
-    }
 }
