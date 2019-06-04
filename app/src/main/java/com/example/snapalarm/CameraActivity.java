@@ -10,10 +10,16 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,16 +47,28 @@ public class CameraActivity extends AppCompatActivity{
         setContentView(R.layout.activity_camera);
 
         dispatchTakePictureIntent();
+
+        Button ret = findViewById(R.id.returnButt);
+        ret.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CameraActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         if (resultCode == RESULT_OK) {
+            ListView imageRes = findViewById(R.id.imageResults);
 //            Bundle extras = takePictureIntent.getExtras();
 //            Bundle userInfo = getIntent().getExtras();
 //            Bitmap data = (Bitmap) extras.get("data");
 //            image = (ImageView) findViewById(R.id.img);
 //            image.setImageBitmap(data);
+            ArrayList<String> imageRecResults = new ArrayList<String>();
+            int index = 1;
 
             // wherever this needs to be redirected
             HashMap<String, Object> map = GVision.callGVis(mCurrentPhotoPath);
@@ -58,8 +76,11 @@ public class CameraActivity extends AppCompatActivity{
             for(Map.Entry entry:hashSet ) {
 
                 Log.e("Key= "+entry.getKey(), "Value="+entry.getValue());
+                imageRecResults.add(index + ". " + entry.getKey().toString() + "     " + entry.getValue().toString());
+                index++;
             }
-
+            ArrayAdapter<String> resultAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, imageRecResults);
+            imageRes.setAdapter(resultAdapter);
 
 
         }
