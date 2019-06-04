@@ -16,15 +16,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
 import android.widget.Toast;
-
-
-
-
+import android.widget.ToggleButton;
 
 
 public class AlarmPage extends AppCompatActivity {
@@ -119,44 +121,44 @@ public class AlarmPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //<<<<<<< HEAD
-//
-//                HashMap<String, Object> alarm = new HashMap<>();
-//                Log.i("Clicks: ", "Clicked create, saving alarm");
-//                // Get Name
-//                EditText nameText = findViewById(R.id.nameEdit);
-//                alarm.put("names", nameText.getText().toString());
-//
-//
-//                alarm.put("hours",Integer.parseInt(h.getSelectedItem().toString())); // Get hour
-//                alarm.put("mins", m.getSelectedItem()); // Get min
-//                alarm.put("ampm", ap.getSelectedItem().toString()); // Get ampm
-//
-//                // Day Selection
-//                String dow[] = {"sun","mon","tue","wed","thu","fri","sat"};
-//                int toggleIDs[] = {R.id.sunButt, R.id.monButt, R.id.tueButt, R.id.wedButt, R.id.thuButt, R.id.friButt, R.id.satButt};
-//                for( int i = 0; i < 7; i++){
-//                    ToggleButton tb =  findViewById(toggleIDs[i]);
-//                    alarm.put(dow[i], tb.isChecked()? 1: 0);
-//                }
-//                // Get Items
-//                String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
-//                int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
-//                                  R.id.item08, R.id.item09};
-//                for(int j = 0; j < 10; j++){
-//                    CheckBox cb = findViewById(checkIDs[j]);
-//                    alarm.put(obj[j], cb.isChecked()? 1: 0);
-//                }
-//
-//                // Add to database
-//                db.addAlarm(new AlarmModel(alarm));
-//
-//                // Read all alarms on db TEST FUNCTION
-//                Log.d("Reading: ", "Reading all alarms...");
-//                List<AlarmModel> alarms = db.getAllAlarms();
-//
-//                for(AlarmModel a: alarms) a.print();
-//
-//                // Back to menu
+
+                HashMap<String, Object> alarm = new HashMap<>();
+                Log.i("Clicks: ", "Clicked create, saving alarm");
+                // Get Name
+                EditText nameText = findViewById(R.id.nameEdit);
+                alarm.put("names", nameText.getText().toString());
+
+
+                alarm.put("hours",Integer.parseInt(h.getSelectedItem().toString())); // Get hour
+                alarm.put("mins", m.getSelectedItem()); // Get min
+                alarm.put("ampm", ap.getSelectedItem().toString()); // Get ampm
+
+                // Day Selection
+                String dow[] = {"sun","mon","tue","wed","thu","fri","sat"};
+                int toggleIDs[] = {R.id.sunButt, R.id.monButt, R.id.tueButt, R.id.wedButt, R.id.thuButt, R.id.friButt, R.id.satButt};
+                for( int i = 0; i < 7; i++){
+                    ToggleButton tb =  findViewById(toggleIDs[i]);
+                    alarm.put(dow[i], tb.isChecked()? 1: 0);
+                }
+                // Get Items
+                String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
+                int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
+                                  R.id.item08, R.id.item09};
+                for(int j = 0; j < 10; j++){
+                    CheckBox cb = findViewById(checkIDs[j]);
+                    alarm.put(obj[j], cb.isChecked()? 1: 0);
+                }
+
+                // Add to database
+                db.addAlarm(new AlarmModel(alarm));
+
+                // Read all alarms on db TEST FUNCTION
+                Log.d("Reading: ", "Reading all alarms...");
+                List<AlarmModel> alarms = db.getAllAlarms();
+
+                for(AlarmModel a: alarms) a.print();
+
+                // Back to menu
 //=======
 
                 try {
