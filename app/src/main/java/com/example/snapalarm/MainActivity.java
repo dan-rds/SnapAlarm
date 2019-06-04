@@ -3,12 +3,7 @@ package com.example.snapalarm;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-
 import android.os.StrictMode;
-import android.support.constraint.ConstraintLayout;
-import android.os.StrictMode;
-
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -30,14 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        //StrictMode.VmPolicy.Builder
-        builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-
-        /*************Background*****************************
+        /*************Background*****************************/
         view = this.getWindow().getDecorView();
         Calendar calendar =  Calendar.getInstance();
         textView = findViewById(R.id.textView);
@@ -103,19 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         final DatabaseHelper db = new DatabaseHelper(this);
-
-
-
-        ArrayList<AlarmModel> alarmList;
-
-         alarmList = db.getAllAlarms ();
-
-
-         alarmList = db.getAllAlarms ();
-
-
+        ArrayList<AlarmModel> alarmList = db.getAllAlarms ();
         Log.e("ARARM LIST LENGTH = ", String.valueOf(alarmList.size()));
-
         if(alarmList != null ) {
             CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(), alarmList);
             listView.setAdapter(mAdapter);

@@ -10,8 +10,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 
 import android.os.VibrationEffect;
-import android.os.Vibrator;
 
+import android.os.Vibrator;
 
 public class MyBrodcastReciver extends BroadcastReceiver {
         @Override
@@ -19,7 +19,6 @@ public class MyBrodcastReciver extends BroadcastReceiver {
 
                 Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(VibrationEffect.createOneShot(2000, -1));
-
 
                 Notification notification = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
