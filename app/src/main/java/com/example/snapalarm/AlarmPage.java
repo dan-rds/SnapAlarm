@@ -37,6 +37,7 @@ public class AlarmPage extends AppCompatActivity {
     public int min;
     public String minute;
     public String Hhour;
+    public int AMPM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +118,12 @@ public class AlarmPage extends AppCompatActivity {
             try{
                 min = Integer.parseInt(m.getSelectedItem().toString());
                 hour = Integer.parseInt(h.getSelectedItem().toString());
+                String day = ap.getSelectedItem().toString();
+                if(day == "AM"){
+                    AMPM = 0;
+                }else{
+                    AMPM = 1;
+                }
             }catch (NumberFormatException e) {
 
             }
@@ -131,6 +138,7 @@ public class AlarmPage extends AppCompatActivity {
                 cal_alarm.set(Calendar.HOUR_OF_DAY, hour);
                 cal_alarm.set(Calendar.MINUTE, min);
                 cal_alarm.set(Calendar.SECOND, 0);
+                cal_alarm.set(Calendar.AM_PM, AMPM);
 
                 if(cal_alarm.before(cal_now)){
                     cal_alarm.add(Calendar.DATE, 1);
