@@ -41,8 +41,8 @@ public class AuthUiActivity extends AppCompatActivity {
                         .setLogo(R.drawable.logo_transparent)      // Set logo drawable
                         .setTheme(R.style.AppTheme)
                         .setAvailableProviders(Arrays.asList(
-                                new AuthUI.IdpConfig.EmailBuilder().build(),
-                                new AuthUI.IdpConfig.GoogleBuilder().build()))
+                                new AuthUI.IdpConfig.EmailBuilder().build()))
+
                         .setTosAndPrivacyPolicyUrls(GOOGLE_TOS_URL, GOOGLE_TOS_URL)
                         //.setTosUrl(GOOGLE_TOS_URL)
                         .setIsSmartLockEnabled(false)

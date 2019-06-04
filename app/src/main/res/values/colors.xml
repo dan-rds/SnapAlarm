@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#999</color>
+    <color name="colorPrimary">#FF5722</color>
     <color name="colorPrimaryDark">#80000000</color>
-    <color name="background">#80000000</color>
-    <color name="menuBackground">#A2A2A2</color>
+    <color name="background">#222</color>
+    <color name="menuBackground">#80000000</color>
     <color name="colorAccent">#50000000</color>
     <color name="buttonAccent">#FF9696</color>
     <color name="foreground">#50000000</color>
-    <color name="blackish">@android:color/background_dark</color>
+    <color name="blackish">#111</color>
     <color name="text_background">#109000</color>
-    <color name="foreground_dark">#323232</color>
-    <color name="hint_foreground_dark">#808080</color>
-    <color name="light_grey">#BEBEBE</color>
-    <color name="hint_foreground_light">#808080</color>
+    <color name="foreground_dark">#5000</color>
+    <color name="light_grey">#50000000</color>
     <color name="highlight_green">#9983CC39</color>
     <color name="highlight_light_blue">#5c5cff</color>
     <color name="highlight_elec_blue">#0000ee</color>
