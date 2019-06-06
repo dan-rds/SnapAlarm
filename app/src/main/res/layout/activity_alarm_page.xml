@@ -81,6 +81,7 @@
         android:layout_marginTop="36dp"
         android:background="@color/light_grey"
         android:backgroundTint="@color/white"
+        android:entries="@array/hours"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,6 +93,7 @@
         android:layout_marginTop="36dp"
         android:background="@color/light_grey"
         android:backgroundTint="@color/white"
+        android:entries="@array/mins"
         app:layout_constraintStart_toEndOf="@+id/hourSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,9 +103,9 @@
         android:layout_height="86dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="36dp"
-
-        android:backgroundTint="@color/white"
         android:background="@color/light_grey"
+        android:backgroundTint="@color/white"
+        android:entries="@array/ampm"
         app:layout_constraintStart_toEndOf="@+id/minSpin"
         app:layout_constraintTop_toTopOf="parent" />
 

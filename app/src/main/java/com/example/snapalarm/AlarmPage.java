@@ -26,13 +26,6 @@ import java.util.List;
 
 public class AlarmPage extends AppCompatActivity {
 
-    String[] hours={"1","2","3","4","5","6","7","8","9","10","11","12"};
-    String[] mins={"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15",
-            "16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31",
-            "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47",
-            "48","49","50","51","52","53","54","55","56","57","58","59"};
-    String[] ampm={"AM","PM"};
-
     public int hour;
     public int min;
     public String minute;
@@ -48,22 +41,22 @@ public class AlarmPage extends AppCompatActivity {
 
         //Hour Spinner
         final Spinner h = findViewById(R.id.hourSpin);
-        ArrayAdapter<String> hAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, hours);
-        hAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter hAdapter = ArrayAdapter.createFromResource(this, R.array.hours, R.layout.spinner);
+        hAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         h.setAdapter(hAdapter);
         Hhour = h.getSelectedItem().toString();
 
         //Minute Spinner
         final Spinner m = findViewById(R.id.minSpin);
-        ArrayAdapter<String> mAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mins);
-        mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter mAdapter = ArrayAdapter.createFromResource(this, R.array.mins, R.layout.spinner);
+        mAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         m.setAdapter(mAdapter);
         minute = m.getSelectedItem().toString();
 
         //AM/PM Spinner
         final Spinner ap = findViewById(R.id.ampmSpin);
-        ArrayAdapter<String> ampmAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ampm);
-        ampmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter ampmAdapter = ArrayAdapter.createFromResource(this, R.array.ampm, R.layout.spinner);
+        ampmAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         ap.setAdapter(ampmAdapter);
 
         // Create Alarm
