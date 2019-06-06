@@ -99,15 +99,15 @@
     <string name="fri">Fri</string>
     <string name="sat">Sat</string>
     <string name="item00">1. Wall</string>
-    <string name="item01">2. Shoe</string>
-    <string name="item02">3. Toaster</string>
-    <string name="item03">4. TV</string>
-    <string name="item04">5. Plant</string>
-    <string name="item05">6. Table</string>
-    <string name="item06">7. Stove</string>
-    <string name="item07">8. Couch</string>
-    <string name="item08">9. Mailbox</string>
-    <string name="item09">10. Fork</string>
+    <string name="item01">2. Room</string>
+    <string name="item02">3. Light</string>
+    <string name="item03">4. Games</string>
+    <string name="item04">5. Zebra</string>
+    <string name="item05">6. Shelf</string>
+    <string name="item06">7. Ceiling</string>
+    <string name="item07">8. Paper</string>
+    <string name="item08">9. Tile</string>
+    <string name="item09">10. Cat</string>
     <string name="create">Create</string>
     <string name="warn">Note: These items are ranked from easiest to hardest for the image recognition to pick up in the AVD Camera Environment!</string>
 
