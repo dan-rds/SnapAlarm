@@ -71,92 +71,100 @@ public class AlarmPage extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
-                HashMap<String, Object> alarm = new HashMap<>();
-                Log.i("Clicks: ", "Clicked create, saving alarm");
-                // Get Name
-                EditText nameText = findViewById(R.id.nameEdit);
-                alarm.put("names", nameText.getText().toString());
-                
-                
-                alarm.put("hours",Integer.parseInt(h.getSelectedItem().toString())); // Get hour
-                alarm.put("mins", m.getSelectedItem()); // Get min
-                alarm.put("ampm", ap.getSelectedItem().toString()); // Get ampm
 
-                // Day Selection
-                String dow[] = {"sun","mon","tue","wed","thu","fri","sat"};
-                int toggleIDs[] = {R.id.sunButt, R.id.monButt, R.id.tueButt, R.id.wedButt, R.id.thuButt, R.id.friButt, R.id.satButt};
-                for( int i = 0; i < 7; i++){
-                    ToggleButton tb =  findViewById(toggleIDs[i]);
-                    alarm.put(dow[i], tb.isChecked()? 1: 0);
+                boolean dayCheck = false;
+                int buttonIDs[] = {R.id.sunButt, R.id.monButt, R.id.tueButt, R.id.wedButt, R.id.thuButt, R.id.friButt, R.id.satButt};
+                for (int a = 0; a < 7; a++) {
+                    ToggleButton b = findViewById(buttonIDs[a]);
+                    dayCheck = dayCheck || b.isChecked();
                 }
-                // Get Items
-                String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
-                int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
-                                  R.id.item08, R.id.item09};
-                for(int j = 0; j < 10; j++){
-                    CheckBox cb = findViewById(checkIDs[j]);
-                    alarm.put(obj[j], cb.isChecked()? 1: 0);
+                // Ensures a day is selected
+                if (dayCheck == true) {
+                    HashMap<String, Object> alarm = new HashMap<>();
+                    Log.i("Clicks: ", "Clicked create, saving alarm");
+                    // Get Name
+                    EditText nameText = findViewById(R.id.nameEdit);
+                    alarm.put("names", nameText.getText().toString());
+
+
+                    alarm.put("hours", Integer.parseInt(h.getSelectedItem().toString())); // Get hour
+                    alarm.put("mins", m.getSelectedItem()); // Get min
+                    alarm.put("ampm", ap.getSelectedItem().toString()); // Get ampm
+
+                    // Day Selection
+                    String dow[] = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"};
+                    int toggleIDs[] = {R.id.sunButt, R.id.monButt, R.id.tueButt, R.id.wedButt, R.id.thuButt, R.id.friButt, R.id.satButt};
+                    for (int i = 0; i < 7; i++) {
+                        ToggleButton tb = findViewById(toggleIDs[i]);
+                        alarm.put(dow[i], tb.isChecked() ? 1 : 0);
+                    }
+                    // Get Items
+                    String obj[] = {"item00", "item01", "item02", "item03", "item04", "item05", "item06", "item07", "item08", "item09"};
+                    int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
+                            R.id.item08, R.id.item09};
+                    for (int j = 0; j < 10; j++) {
+                        CheckBox cb = findViewById(checkIDs[j]);
+                        alarm.put(obj[j], cb.isChecked() ? 1 : 0);
+                    }
+
+                    // Add to database
+                    db.addAlarm(new AlarmModel(alarm));
+
+
+                    // Read all alarms on db TEST FUNCTION
+                    Log.d("Reading: ", "Reading all alarms...");
+                    List<AlarmModel> alarms = db.getAllAlarms();
+
+                    for (AlarmModel a : alarms) a.print();
+
+
+                    // Back to menu
+
+
+                    try {
+                        min = Integer.parseInt(m.getSelectedItem().toString());
+                        hour = Integer.parseInt(h.getSelectedItem().toString());
+                        String day = ap.getSelectedItem().toString();
+                        if (day == "AM") {
+                            AMPM = 0;
+                        } else {
+                            AMPM = 1;
+                        }
+                    } catch (NumberFormatException e) {
+
+                    }
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                    Date date = new Date();
+                    Calendar cal_alarm = Calendar.getInstance();
+                    Calendar cal_now = Calendar.getInstance();
+
+                    cal_now.setTime(date);
+                    cal_alarm.setTime(date);
+
+                    cal_alarm.set(Calendar.HOUR_OF_DAY, hour);
+                    cal_alarm.set(Calendar.MINUTE, min);
+                    cal_alarm.set(Calendar.SECOND, 0);
+                    cal_alarm.set(Calendar.AM_PM, AMPM);
+
+                    if (cal_alarm.before(cal_now)) {
+                        cal_alarm.add(Calendar.DATE, 1);
+                    }
+
+                    Toast.makeText(getApplicationContext(), "Alarm Set " + nameText.getText().toString() + " for " + Integer.parseInt(h.getSelectedItem().toString()) + ":" + m.getSelectedItem() + ap.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0);
+
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, cal_alarm.getTimeInMillis(), pendingIntent);
+
+                    Intent i = new Intent(AlarmPage.this, MainActivity.class);
+                    startActivity(i);
                 }
-
-                // Add to database
-                db.addAlarm(new AlarmModel(alarm));
-
-
-
-                // Read all alarms on db TEST FUNCTION
-                Log.d("Reading: ", "Reading all alarms...");
-                List<AlarmModel> alarms = db.getAllAlarms();
-
-                for(AlarmModel a: alarms) a.print();
-
-
-
-                // Back to menu
-
-
-            try{
-                min = Integer.parseInt(m.getSelectedItem().toString());
-                hour = Integer.parseInt(h.getSelectedItem().toString());
-                String day = ap.getSelectedItem().toString();
-                if(day == "AM"){
-                    AMPM = 0;
-                }else{
-                    AMPM = 1;
+                else {
+                    Toast.makeText(getApplicationContext(), "Please select a day!", Toast.LENGTH_SHORT).show();
                 }
-            }catch (NumberFormatException e) {
-
             }
-                AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-                Date date = new Date();
-                Calendar cal_alarm = Calendar.getInstance();
-                Calendar cal_now = Calendar.getInstance();
-
-                cal_now.setTime(date);
-                cal_alarm.setTime(date);
-
-                cal_alarm.set(Calendar.HOUR_OF_DAY, hour);
-                cal_alarm.set(Calendar.MINUTE, min);
-                cal_alarm.set(Calendar.SECOND, 0);
-                cal_alarm.set(Calendar.AM_PM, AMPM);
-
-                if(cal_alarm.before(cal_now)){
-                    cal_alarm.add(Calendar.DATE, 1);
-                }
-
-                Toast.makeText(getApplicationContext(), "Alarm Set " + nameText.getText().toString() +" for "+ Integer.parseInt(h.getSelectedItem().toString())  + ":"+m.getSelectedItem() + ap.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0);
-
-                alarmManager.set(AlarmManager.RTC_WAKEUP, cal_alarm.getTimeInMillis(), pendingIntent);
-
-                Intent i = new Intent(AlarmPage.this, MainActivity.class);
-                startActivity(i);
-            }
-
-
-            });
+        });
     }
 
 }
