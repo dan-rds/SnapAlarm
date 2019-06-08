@@ -11,7 +11,6 @@ import android.util.Log;
 
 
 public class AlarmModel {
-
     private float _alarmTimeUTC;
     private int _hour;
     private int _minute;
@@ -121,10 +120,12 @@ public class AlarmModel {
         return items;
     }
 
-    public boolean getActiveStatus(){
-        //TODO add a db call. Just random for now
-        return  _hour % 2 == 0;
+    public void boolToast(boolean status){
+        if(status == true){
+            Log.i("switch","switch is on");
+        }
+        else if(status == false){
+            Log.i("switch", "switch is off");
+        }
     }
-
-
 }

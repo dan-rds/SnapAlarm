@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class CustomAdapter extends ArrayAdapter<AlarmModel> {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
 
-        AlarmModel currentAlarmModel = AlarmModelsList.get(position);
+        final AlarmModel currentAlarmModel = AlarmModelsList.get(position);
 
         TextView time = listItem.findViewById(R.id.textView_time);
         time.setText(currentAlarmModel.getTimeString());
@@ -46,8 +47,14 @@ public class CustomAdapter extends ArrayAdapter<AlarmModel> {
         TextView name = listItem.findViewById(R.id.textView_name);
         name.setText(currentAlarmModel.getName());
 
-        Switch release = listItem.findViewById(R.id.active_switch);
-        release.setChecked(currentAlarmModel.getActiveStatus());
+        final Switch release = listItem.findViewById(R.id.active_switch);
+        release.setChecked(true);
+        release.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentAlarmModel.boolToast(release.isChecked());
+            }
+        });
 
         return listItem;
     }
