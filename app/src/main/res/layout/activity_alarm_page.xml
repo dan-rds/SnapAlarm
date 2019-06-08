@@ -11,65 +11,66 @@
         android:id="@+id/item05"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="235dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="88dp"
         android:buttonTint="@color/white"
         android:text="@string/item05"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameEdit" />
 
     <CheckBox
         android:id="@+id/item06"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="235dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="88dp"
         android:buttonTint="@color/white"
         android:text="@string/item06"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item05" />
 
     <CheckBox
         android:id="@+id/item07"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="235dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="88dp"
         android:buttonTint="@color/white"
         android:text="@string/item07"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item06" />
 
     <CheckBox
         android:id="@+id/item08"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="235dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="88dp"
         android:buttonTint="@color/white"
         android:text="@string/item08"
+        android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item07" />
 
     <CheckBox
         android:id="@+id/item09"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="235dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="89dp"
         android:buttonTint="@color/white"
         android:text="@string/item09"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item08" />
 
     <Spinner
@@ -79,28 +80,20 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="36dp"
         android:background="@color/light_grey"
-        android:backgroundTintMode="add"
-        android:dropDownWidth="80dp"
-        android:dropDownSelector="@color/light_grey"
-        android:popupElevation="20sp"
-        android:textColor="@color/white"
-        android:textSize="36sp"
+        android:backgroundTint="@color/white"
+        android:entries="@array/hours"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/minSpin"
-        style="@android:style/Widget.DeviceDefault.Light.Spinner"
         android:layout_width="87dp"
         android:layout_height="85dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
         android:background="@color/light_grey"
-        android:dropDownSelector="@color/light_grey"
-        android:popupElevation="20sp"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="36sp"
+        android:backgroundTint="@color/white"
+        android:entries="@array/mins"
         app:layout_constraintStart_toEndOf="@+id/hourSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,10 +104,8 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="36dp"
         android:background="@color/light_grey"
-        android:dropDownSelector="@color/light_grey"
-        android:popupElevation="20sp"
-        android:textColor="@color/white"
-        android:textSize="36sp"
+        android:backgroundTint="@color/white"
+        android:entries="@array/ampm"
         app:layout_constraintStart_toEndOf="@+id/minSpin"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,7 +113,7 @@
         android:id="@+id/colon"
         android:layout_width="36dp"
         android:layout_height="62dp"
-        android:layout_marginStart="140dp"
+        android:layout_marginStart="148dp"
         android:layout_marginTop="48dp"
         android:text="@string/colon"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -188,9 +179,9 @@
         android:id="@+id/wedButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="160dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/color_toggle"
         android:text="@string/wed"
         android:textColor="@color/white"
@@ -204,7 +195,7 @@
         android:id="@+id/tueButt"
         android:layout_width="70dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="160dp"
         android:background="@drawable/color_toggle"
         android:text="@string/tue"
@@ -293,9 +284,9 @@
         android:buttonTint="@color/white"
         android:text="@string/item00"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEdit"
-        android:textSize="16sp" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEdit" />
 
     <CheckBox
         android:id="@+id/item02"
@@ -322,6 +313,20 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item03" />
+
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/warn"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/createButt" />
 
 
 </android.support.constraint.ConstraintLayout>

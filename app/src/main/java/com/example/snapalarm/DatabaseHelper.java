@@ -29,16 +29,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String keyThu = "thu";
     private static final String keyFri = "fri";
     private static final String keySat = "sat";
-    private static final String keyItem00 = "item00";
-    private static final String keyItem01 = "item01";
-    private static final String keyItem02 = "item02";
-    private static final String keyItem03 = "item03";
-    private static final String keyItem04 = "item04";
-    private static final String keyItem05 = "item05";
-    private static final String keyItem06 = "item06";
-    private static final String keyItem07 = "item07";
-    private static final String keyItem08 = "item08";
-    private static final String keyItem09 = "item09";
+    private static final String keyItem00 = "wall";
+    private static final String keyItem01 = "room";
+    private static final String keyItem02 = "light";
+    private static final String keyItem03 = "games";
+    private static final String keyItem04 = "zebra";
+    private static final String keyItem05 = "shelf";
+    private static final String keyItem06 = "ceiling";
+    private static final String keyItem07 = "paper";
+    private static final String keyItem08 = "tile";
+    private static final String keyItem09 = "cat";
 
 
     public DatabaseHelper(Context context) { super(context, dbName, null, 1); }
