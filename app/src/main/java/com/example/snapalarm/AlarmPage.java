@@ -59,6 +59,7 @@ public class AlarmPage extends AppCompatActivity {
         ampmAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         ap.setAdapter(ampmAdapter);
 
+
         // Create Alarm
         Button create = findViewById(R.id.createButt);
         create.setOnClickListener(new View.OnClickListener() {
@@ -71,8 +72,15 @@ public class AlarmPage extends AppCompatActivity {
                     ToggleButton b = findViewById(buttonIDs[a]);
                     dayCheck = dayCheck || b.isChecked();
                 }
-                // Ensures a day is selected
-                if (dayCheck == true) {
+                boolean objCheck = false;
+                int objIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
+                        R.id.item08, R.id.item09};
+                for(int c = 0; c < 10; c++) {
+                    CheckBox d = findViewById(objIDs[c]);
+                    objCheck = objCheck || d.isChecked();
+                }
+                // Ensures a day and obj is selected
+                if (dayCheck == true && objCheck == true) {
                     HashMap<String, Object> alarm = new HashMap<>();
                     Log.i("Clicks: ", "Clicked create, saving alarm");
                     // Get Name
@@ -92,7 +100,7 @@ public class AlarmPage extends AppCompatActivity {
                         alarm.put(dow[i], tb.isChecked() ? 1 : 0);
                     }
                     // Get Items
-                    String obj[] = {"item00", "item01", "item02", "item03", "item04", "item05", "item06", "item07", "item08", "item09"};
+                    String obj[] = {"wall", "room", "light", "games", "zebra", "shelf", "ceiling", "paper", "tile", "cat"};
                     int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
                             R.id.item08, R.id.item09};
                     for (int j = 0; j < 10; j++) {
@@ -153,8 +161,14 @@ public class AlarmPage extends AppCompatActivity {
                     Intent i = new Intent(AlarmPage.this, MainActivity.class);
                     startActivity(i);
                 }
-                else {
+                else if(dayCheck == false && objCheck == true) {
                     Toast.makeText(getApplicationContext(), "Please select a day!", Toast.LENGTH_SHORT).show();
+                }
+                else if(dayCheck == true && objCheck == false) {
+                    Toast.makeText(getApplicationContext(), "Please select an object!", Toast.LENGTH_SHORT).show();
+                }
+                else if(dayCheck == false && objCheck == false) {
+                    Toast.makeText(getApplicationContext(), "Please select a day and an object!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

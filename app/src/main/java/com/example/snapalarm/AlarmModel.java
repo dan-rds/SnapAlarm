@@ -19,7 +19,7 @@ public class AlarmModel {
     private boolean[] _repeatDays;
     private boolean[] _items;
     String dow[] = {"sun","mon","tue","wed","thu","fri","sat"};
-    String obj[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
+    String obj[] = {"wall","room","light","games","zebra","shelf","ceiling","paper","tile","cat"};
 
     // TODO figure out the sound type
    // private sound alarmsound
@@ -83,8 +83,7 @@ public class AlarmModel {
             output.put(dow[i], this._repeatDays[i]? 1 : 0);
         }
 
-        // Change items to actual items
-        String items[] = {"item00","item01","item02","item03","item04","item05","item06","item07","item08","item09"};
+        String items[] = {"wall","room","light","games","zebra","shelf","ceiling","paper","tile","cat"};
         for(int i = 0; i < 10; i++){
             output.put(items[i], this._items[i]? 1 : 0);
         }
