@@ -2,6 +2,7 @@ package com.example.snapalarm;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.content.Intent;
 import com.google.firebase.auth.FirebaseUser;
@@ -56,6 +57,7 @@ public class CameraActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent i = new Intent(CameraActivity.this, MainActivity.class);
                 i.putExtra("camera_msg", "Found Wall");
+
                 startActivity(i);
             }
         });
@@ -88,6 +90,15 @@ public class CameraActivity extends AppCompatActivity{
 //            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 2444, intent, 0 );
 //
 //
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Intent stopAlarmIntent = new Intent(CameraActivity.this, MyBrodcastReciver.class);
+            stopAlarmIntent.putExtra("command", "stop");
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(CameraActivity.this, 2444, stopAlarmIntent, 0);
+
+            alarmManager.set(AlarmManager.RTC_WAKEUP, 0, pendingIntent);
+
+            Intent retIntent = new Intent(CameraActivity.this, MainActivity.class);
+            startActivity(retIntent);
 
         }
     }
