@@ -46,12 +46,11 @@ public class CameraActivity extends AppCompatActivity{
         setContentView(R.layout.activity_camera);
         words_found = new ArrayList<String>();
 
-        try {
-            object_name = savedInstanceState.getString("object_name");
-        }
-        catch(Exception e){
-            object_name = "wall";
-        }
+        object_name = savedInstanceState.getString("object_name");
+
+//        catch(Exception e){
+//            object_name = "wall";
+//        }
         dispatchTakePictureIntent();
 
         Button ret = findViewById(R.id.returnButt);
