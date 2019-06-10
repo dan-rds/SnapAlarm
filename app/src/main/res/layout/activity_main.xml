@@ -38,7 +38,29 @@
             android:textColor="@color/orange"
 
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/stop_alarm"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blackish"
+            android:text="STOP ALARM"
+            android:textColor="@color/orange"
+            android:textStyle="bold" />
 
+
+        <Button
+            android:id="@+id/start_alarm"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blackish"
+            android:text="START ALARM"
+            android:textColor="@color/orange"
+
+            android:textStyle="bold" />
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout

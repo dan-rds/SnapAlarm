@@ -36,19 +36,22 @@ public class CameraActivity extends AppCompatActivity{
     private Intent takePictureIntent;
     private FirebaseUser user;
     private String photoDBPath;
+    private String object_name;
     public Uri photoUri = new Uri.Builder().build();
+    private ArrayList<String> words_found;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        Bundle bundle = getIntent().getExtras();
-//
-//       user = (FirebaseUser)bundle.get("user");
-//        Log.e("_______", user.getDisplayName());
-
         setContentView(R.layout.activity_camera);
+        words_found = new ArrayList<String>();
 
+        try {
+            object_name = savedInstanceState.getString("object_name");
+        }
+        catch(Exception e){
+            object_name = "wall";
+        }
         dispatchTakePictureIntent();
 
         Button ret = findViewById(R.id.returnButt);
@@ -56,8 +59,15 @@ public class CameraActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CameraActivity.this, MainActivity.class);
-                i.putExtra("camera_msg", "Found Wall");
-
+                Log.e(String.valueOf(words_found.contains(object_name)), words_found.toString());
+                if( words_found.contains(object_name)){
+                    i.putExtra("camera_msg", "Found " + object_name);
+                    Log.d("Stopping alarm", "___");
+                    Intent stopIntent = new Intent(getApplicationContext(), RingtoneService.class);
+                    stopService(stopIntent);
+                } else{
+                    i.putExtra("camera_msg", "Try again, did not find " + object_name);
+                }
                 startActivity(i);
             }
         });
@@ -79,26 +89,17 @@ public class CameraActivity extends AppCompatActivity{
             HashMap<String, Object> map = GVision.callGVis(mCurrentPhotoPath);
             Set<Map.Entry<String,Object>> hashSet=map.entrySet();
             for(Map.Entry entry:hashSet ) {
-
+                words_found.add(entry.getKey().toString().toLowerCase());
                 Log.e("Ke y= "+entry.getKey(), "Value="+entry.getValue());
                 imageRecResults.add(index + ". " + entry.getKey().toString() + "     " + entry.getValue().toString());
                 index++;
             }
+            for(String w : words_found){
+                Log.e("Found", w);
+            }
             ArrayAdapter<String> resultAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, imageRecResults);
             imageRes.setAdapter(resultAdapter);
 
-//            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 2444, intent, 0 );
-//
-//
-            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            Intent stopAlarmIntent = new Intent(CameraActivity.this, MyBrodcastReciver.class);
-            stopAlarmIntent.putExtra("command", "stop");
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(CameraActivity.this, 2444, stopAlarmIntent, 0);
-
-            alarmManager.set(AlarmManager.RTC_WAKEUP, 0, pendingIntent);
-
-            Intent retIntent = new Intent(CameraActivity.this, MainActivity.class);
-            startActivity(retIntent);
 
         }
     }

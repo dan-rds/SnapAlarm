@@ -1,12 +1,18 @@
 package com.example.snapalarm;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.os.StrictMode;
+import android.provider.Settings;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        Button cameraFab = findViewById(R.id.camera_btn);
+        final Button cameraFab = findViewById(R.id.camera_btn);
         Button alarmFab = findViewById(R.id.alarm_btn);
 
         cameraFab.setOnClickListener(new View.OnClickListener() {
@@ -53,16 +59,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button startAlarm = findViewById(R.id.start_alarm);
+        startAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Test Start", "Button Clicked");
+                Intent startIntent = new Intent(getApplicationContext(), RingtoneService.class);
+                context.startService(startIntent);
+            }
+        });
+
+        Button stopAlarm = findViewById(R.id.stop_alarm);
+        stopAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Test Stop", "Button Clicked");
+                Intent stopIntent = new Intent(getApplicationContext(), RingtoneService.class);
+                stopService(stopIntent);
+            }
+        });
+
+
         ListView listView = findViewById(R.id.alarmList);
 
         final DatabaseHelper db = new DatabaseHelper(this);
         ArrayList<AlarmModel> alarmList = db.getAllAlarms ();
         if(alarmList != null ) {
-
             CustomAdapter mAdapter = new CustomAdapter(super.getApplicationContext(), alarmList);
             listView.setAdapter(mAdapter);
         }
-
     }
 
     @Override

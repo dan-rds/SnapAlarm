@@ -35,7 +35,7 @@
         </intent-filter>
         </activity>
 
-
+        <service android:name=".RingtoneService"  ></service>
         <activity
             android:name=".AlarmTrigger"
             android:label="@string/title_activity_alarm_trigger"

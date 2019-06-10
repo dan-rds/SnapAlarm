@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -100,12 +101,17 @@ public class AlarmPage extends AppCompatActivity {
                         alarm.put(dow[i], tb.isChecked() ? 1 : 0);
                     }
                     // Get Items
+                    ArrayList<String> selected_objects = new ArrayList();
                     String obj[] = {"wall", "room", "light", "games", "zebra", "shelf", "ceiling", "paper", "tile", "cat"};
                     int checkIDs[] = {R.id.item00, R.id.item01, R.id.item02, R.id.item03, R.id.item04, R.id.item05, R.id.item06, R.id.item07,
                             R.id.item08, R.id.item09};
                     for (int j = 0; j < 10; j++) {
+
                         CheckBox cb = findViewById(checkIDs[j]);
                         alarm.put(obj[j], cb.isChecked() ? 1 : 0);
+                        if(cb.isChecked()){
+                            selected_objects.add(obj[j]);
+                        }
                     }
 
                     // Add to database
@@ -154,8 +160,11 @@ public class AlarmPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Alarm Set " + nameText.getText().toString() + " for " + Integer.parseInt(h.getSelectedItem().toString()) + ":" + m.getSelectedItem() + ap.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(AlarmPage.this, MyBrodcastReciver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0);
+                    Log.e("Selected" , selected_objects.toString());
 
+                    intent.putExtra("options", selected_objects.toArray(new String[0]));
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmPage.this, 2444, intent, 0);
+                   // PendingIntent.put("options", selected_objects.toArray());
                     alarmManager.set(AlarmManager.RTC_WAKEUP, cal_alarm.getTimeInMillis(), pendingIntent);
 
                     Intent i = new Intent(AlarmPage.this, MainActivity.class);

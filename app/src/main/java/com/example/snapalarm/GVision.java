@@ -97,7 +97,7 @@ public class GVision {
         // split up json into string arrays
         String[] descriptions = jsonResp.split("\"description\":\"");
         String[] scores = jsonResp.split("score\":");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             String desc = descriptions[i].split("\"")[0];  // take off the ends of the string
             String score = scores[i].split(",")[0];
 
