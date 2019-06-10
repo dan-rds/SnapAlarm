@@ -31,13 +31,9 @@ import java.util.Set;
 public class CameraActivity extends AppCompatActivity{
 
     final static int REQUEST_CODE = 1;
-    private ImageView image;
     private String mCurrentPhotoPath;
     private Intent takePictureIntent;
-    private FirebaseUser user;
-    private String photoDBPath;
     private String object_name;
-    public Uri photoUri = new Uri.Builder().build();
     private ArrayList<String> words_found;
 
     @Override
@@ -48,9 +44,6 @@ public class CameraActivity extends AppCompatActivity{
 
         object_name = getIntent().getExtras().getString("object_name");
 
-//        catch(Exception e){
-//            object_name = "wall";
-//        }
         dispatchTakePictureIntent();
 
         Button ret = findViewById(R.id.returnButt);
@@ -76,11 +69,6 @@ public class CameraActivity extends AppCompatActivity{
         super.onActivityResult(requestCode, resultCode, intent);
         if (resultCode == RESULT_OK) {
             ListView imageRes = findViewById(R.id.imageResults);
-//            Bundle extras = takePictureIntent.getExtras();
-//            Bundle userInfo = getIntent().getExtras();
-//            Bitmap data = (Bitmap) extras.get("data");
-//            image = (ImageView) findViewById(R.id.img);
-//            image.setImageBitmap(data);
             ArrayList<String> imageRecResults = new ArrayList<String>();
             int index = 1;
 
